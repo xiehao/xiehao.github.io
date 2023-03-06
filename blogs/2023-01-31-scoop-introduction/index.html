@@ -1,24 +1,22 @@
-<!doctype html><html lang=en-us><head><title>在Windows下用Scoop安装软件 // 无名空间</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.110.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="oaheix"><meta name=description content><link rel=stylesheet href=/css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css><meta name=twitter:card content="summary"><meta name=twitter:title content="在Windows下用Scoop安装软件"><meta name=twitter:description content="[toc]
-简介 工欲善其事，必先利其器。
+<!doctype html><html lang=en-us><head><title>在Windows下用Scoop安装软件 // 无名空间</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.111.2"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="oaheix"><meta name=description content><link rel=stylesheet href=/css/main.min.3c3c186cd62e563ad6e2f00a89dbee656ab912d1d46f856b5605dd0232521e2a.css><meta name=twitter:card content="summary"><meta name=twitter:title content="在Windows下用Scoop安装软件"><meta name=twitter:description content="简介 工欲善其事，必先利其器。
 使用电脑从安装软件开始，目前有多种安装软件的方式，主流方式即通过下载安装包安装所需软件，不赘述；此外，亦可通过命令行方式进行。在Windows平台上常见的命令行安装方式包括 Chocolatey 与 Scoop 等，前者出现较早，限制颇多，故本文采用后者。
 Scoop 是一款 Windows 平台上基于命令行的软件包管理器，类似 macOS 与 Linux 平台上的 Homebrew ，可用于管理软件的安装、卸载、更新等，具有如下特点：
 简洁：纯命令行操作，可批量管理软件，无需通过访问网页方式下载安装； 省心：自动管理依赖关系、自动设置环境变量、自动识别 32/64 位； 绿色：不污染系统环境（注册表），所有相关文件（包括已安装软件与配置文件等）均在指定路径下； 便携：便于在重装系统后或在新电脑上快速恢复或迁移已安装软件（包括部分配置信息）； 丰富：除官方仓库外，尚支持第三方自定义仓库，极大程度丰富了可管理软件的种类。 安装与卸载 前提条件 系统中必须有最新版的 PowerShell 或 Windows PowerShell 5.1 及以上版本 为允许执行安装程序，PowerShell执行策略必须是以下之一：Unrestricted,RemoteSigned 或 ByPass，一般选用RemoteSigned 在 PowerShell 中输入： Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 输入y表示同意 安装Scoop 注意：鉴于目前国内网络环境问题，若无法科学上网，可参考迁移与维护一节。
 默认安装 该方式集下载、安装于一体，且安装至C:\\Users\<你的用户名>\scoop路径下。
 以非管理员账户运行 PowerShell 并输入以下命令： irm get.scoop.sh | iex 若遇网络问题，可加入代理选项（亦适用于下述高级安装）： irm get.scoop.sh -Proxy 'http://<IP地址:端口号>' | iex 高级安装 该方式可将各步骤拆分完成，且可自定义安装路径、权限等。
-首先下载所需安装脚本并另存为scoop-installer.ps1： irm get.scoop.sh -outfile 'scoop-installer."><meta property="og:title" content="在Windows下用Scoop安装软件"><meta property="og:description" content="[toc]
-简介 工欲善其事，必先利其器。
+首先下载所需安装脚本并另存为scoop-installer.ps1： irm get.scoop.sh -outfile 'scoop-installer.ps1' 在利用脚本安装时按需设置安装参数，如设置普通软件与全局软件的安装路径、网络代理 等信息： ."><meta property="og:title" content="在Windows下用Scoop安装软件"><meta property="og:description" content="简介 工欲善其事，必先利其器。
 使用电脑从安装软件开始，目前有多种安装软件的方式，主流方式即通过下载安装包安装所需软件，不赘述；此外，亦可通过命令行方式进行。在Windows平台上常见的命令行安装方式包括 Chocolatey 与 Scoop 等，前者出现较早，限制颇多，故本文采用后者。
 Scoop 是一款 Windows 平台上基于命令行的软件包管理器，类似 macOS 与 Linux 平台上的 Homebrew ，可用于管理软件的安装、卸载、更新等，具有如下特点：
 简洁：纯命令行操作，可批量管理软件，无需通过访问网页方式下载安装； 省心：自动管理依赖关系、自动设置环境变量、自动识别 32/64 位； 绿色：不污染系统环境（注册表），所有相关文件（包括已安装软件与配置文件等）均在指定路径下； 便携：便于在重装系统后或在新电脑上快速恢复或迁移已安装软件（包括部分配置信息）； 丰富：除官方仓库外，尚支持第三方自定义仓库，极大程度丰富了可管理软件的种类。 安装与卸载 前提条件 系统中必须有最新版的 PowerShell 或 Windows PowerShell 5.1 及以上版本 为允许执行安装程序，PowerShell执行策略必须是以下之一：Unrestricted,RemoteSigned 或 ByPass，一般选用RemoteSigned 在 PowerShell 中输入： Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 输入y表示同意 安装Scoop 注意：鉴于目前国内网络环境问题，若无法科学上网，可参考迁移与维护一节。
 默认安装 该方式集下载、安装于一体，且安装至C:\\Users\<你的用户名>\scoop路径下。
 以非管理员账户运行 PowerShell 并输入以下命令： irm get.scoop.sh | iex 若遇网络问题，可加入代理选项（亦适用于下述高级安装）： irm get.scoop.sh -Proxy 'http://<IP地址:端口号>' | iex 高级安装 该方式可将各步骤拆分完成，且可自定义安装路径、权限等。
-首先下载所需安装脚本并另存为scoop-installer.ps1： irm get.scoop.sh -outfile 'scoop-installer."><meta property="og:type" content="article"><meta property="og:url" content="http://xiehao.github.io/blogs/2023-01-31-scoop-introduction/"><meta property="article:section" content="blogs"><meta property="article:published_time" content="2023-01-31T10:38:52+08:00"><meta property="article:modified_time" content="2023-01-31T10:38:52+08:00"></head><body><header class=app-header><a href=http://xiehao.github.io/><img class=app-header-avatar src=/xie.png alt=oaheix></a>
+首先下载所需安装脚本并另存为scoop-installer.ps1： irm get.scoop.sh -outfile 'scoop-installer.ps1' 在利用脚本安装时按需设置安装参数，如设置普通软件与全局软件的安装路径、网络代理 等信息： ."><meta property="og:type" content="article"><meta property="og:url" content="http://xiehao.github.io/blogs/2023-01-31-scoop-introduction/"><meta property="article:section" content="blogs"><meta property="article:published_time" content="2023-01-31T10:38:52+08:00"><meta property="article:modified_time" content="2023-01-31T10:38:52+08:00"></head><body><header class=app-header><a href=http://xiehao.github.io/><img class=app-header-avatar src=/xie.png alt=oaheix></a>
 <span class=app-header-title>无名空间</span><nav class=app-header-menu><a class=app-header-menu-item href=/>主页</a>
 -
 <a class=app-header-menu-item href=/tags/>标签</a>
 -
-<a class=app-header-menu-item href=/about/>关于</a></nav><p>一名淡定男教师的点滴分享</p><div class=app-header-social><a href=https://github.com/xiehao target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=mailto:oaheix@gmail.com target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail"><title>邮箱</title><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>在Windows下用Scoop安装软件</h1><div class=post-meta><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jan 31, 2023</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 min read</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=http://xiehao.github.io/tags/scoop/>scoop</a>
-<a class=tag href=http://xiehao.github.io/tags/%E6%95%99%E7%A8%8B/>教程</a></div></div></header><div class=post-content><p>[toc]</p><h3 id=简介>简介</h3><blockquote><p>工欲善其事，必先利其器。</p></blockquote><p>使用电脑从安装软件开始，目前有多种安装软件的方式，主流方式即通过下载安装包安装所需软件，不赘述；此外，亦可通过命令行方式进行。在Windows平台上常见的命令行安装方式包括<a href=https://chocolatey.org> Chocolatey </a>与<a href=https://scoop.sh> Scoop </a>等，前者出现较早，限制颇多，故本文采用后者。</p><p>Scoop 是一款 Windows 平台上基于命令行的<strong>软件包管理器</strong>，类似 macOS 与 Linux 平台上的<a href=https://brew.sh> Homebrew </a>，可用于管理软件的安装、卸载、更新等，具有如下特点：</p><ul><li><strong>简洁</strong>：纯命令行操作，可批量管理软件，无需通过访问网页方式下载安装；</li><li><strong>省心</strong>：自动管理依赖关系、自动设置环境变量、自动识别 32/64 位；</li><li><strong>绿色</strong>：不污染系统环境（注册表），所有相关文件（包括已安装软件与配置文件等）均在指定路径下；</li><li><strong>便携</strong>：便于在重装系统后或在新电脑上快速恢复或迁移已安装软件（包括部分配置信息）；</li><li><strong>丰富</strong>：除官方仓库外，尚支持第三方自定义仓库，极大程度丰富了可管理软件的种类。</li></ul><h3 id=安装与卸载>安装与卸载</h3><h4 id=前提条件>前提条件</h4><ul><li>系统中必须有最新版的<a href=https://learn.microsoft.com/zh-cn/powershell/> PowerShell</a> 或 Windows PowerShell 5.1 及以上版本</li><li>为允许执行安装程序，PowerShell执行策略必须是以下之一：<code>Unrestricted</code>,<code>RemoteSigned</code> 或 <code>ByPass</code>，一般选用<code>RemoteSigned</code><ul><li>在 PowerShell 中输入：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+<a class=app-header-menu-item href=/about/>关于</a></nav><p>一名淡定男教师的点滴分享</p><div class=app-header-social><a href=https://github.com/xiehao target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=mailto:oaheix@gmail.com target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-mail"><title>邮箱</title><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>在Windows下用Scoop安装软件</h1><div class=post-meta><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Jan 31, 2023</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12 min read</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=http://xiehao.github.io/tags/scoop/>scoop</a>
+<a class=tag href=http://xiehao.github.io/tags/%E6%95%99%E7%A8%8B/>教程</a></div></div></header><div class=post-content><h3 id=简介>简介</h3><blockquote><p>工欲善其事，必先利其器。</p></blockquote><p>使用电脑从安装软件开始，目前有多种安装软件的方式，主流方式即通过下载安装包安装所需软件，不赘述；此外，亦可通过命令行方式进行。在Windows平台上常见的命令行安装方式包括<a href=https://chocolatey.org> Chocolatey </a>与<a href=https://scoop.sh> Scoop </a>等，前者出现较早，限制颇多，故本文采用后者。</p><p>Scoop 是一款 Windows 平台上基于命令行的<strong>软件包管理器</strong>，类似 macOS 与 Linux 平台上的<a href=https://brew.sh> Homebrew </a>，可用于管理软件的安装、卸载、更新等，具有如下特点：</p><ul><li><strong>简洁</strong>：纯命令行操作，可批量管理软件，无需通过访问网页方式下载安装；</li><li><strong>省心</strong>：自动管理依赖关系、自动设置环境变量、自动识别 32/64 位；</li><li><strong>绿色</strong>：不污染系统环境（注册表），所有相关文件（包括已安装软件与配置文件等）均在指定路径下；</li><li><strong>便携</strong>：便于在重装系统后或在新电脑上快速恢复或迁移已安装软件（包括部分配置信息）；</li><li><strong>丰富</strong>：除官方仓库外，尚支持第三方自定义仓库，极大程度丰富了可管理软件的种类。</li></ul><h3 id=安装与卸载>安装与卸载</h3><h4 id=前提条件>前提条件</h4><ul><li>系统中必须有最新版的<a href=https://learn.microsoft.com/zh-cn/powershell/> PowerShell</a> 或 Windows PowerShell 5.1 及以上版本</li><li>为允许执行安装程序，PowerShell执行策略必须是以下之一：<code>Unrestricted</code>,<code>RemoteSigned</code> 或 <code>ByPass</code>，一般选用<code>RemoteSigned</code><ul><li>在 PowerShell 中输入：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 </span></span></code></pre></div></li><li>输入<code>y</code>表示同意</li></ul></li></ul><h4 id=安装scoop>安装Scoop</h4><blockquote><p>注意：鉴于目前国内网络环境问题，若无法科学上网，可参考<strong>迁移与维护</strong>一节。</p></blockquote><h5 id=默认安装>默认安装</h5><p>该方式集下载、安装于一体，且安装至<code>C:\\Users\&lt;你的用户名>\scoop</code>路径下。</p><ul><li>以非管理员账户运行 PowerShell 并输入以下命令：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>irm get.scoop.sh | iex
 </span></span></code></pre></div></li><li>若遇网络问题，可加入代理选项（亦适用于下述高级安装）：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>irm get.scoop.sh -Proxy <span style=color:#e6db74>&#39;http://&lt;IP地址:端口号&gt;&#39;</span> | iex
 </span></span></code></pre></div></li></ul><h5 id=高级安装>高级安装</h5><p>该方式可将各步骤拆分完成，且可自定义安装路径、权限等。</p><ul><li>首先下载所需安装脚本并另存为<code>scoop-installer.ps1</code>：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>irm get.scoop.sh -outfile <span style=color:#e6db74>&#39;scoop-installer.ps1&#39;</span>
@@ -52,4 +50,598 @@ Scoop 是一款 Windows 平台上基于命令行的软件包管理器，类似 m
 </span></span></code></pre></div></li><li>可用<code>list</code>子命令查看已添加仓库：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>scoop bucket list
 </span></span></code></pre></div></li><li>若需删除仓库，需指定待删除仓库名，如删除<code>KarasuShin/scoop-bucket</code>仓库：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>scoop bucket rm KarasuShin_scoop-bucket
 </span></span></code></pre></div></li></ul><h3 id=迁移与维护>迁移与维护</h3><blockquote><p>注意：若有他人已安装的 Scoop 软件，则无法通过网络安装的读者可采用该方法迁移安装。</p></blockquote><p>因 Scoop 本身绿色环保，故当装或重装新系统后可通过如下简单步骤迁移已安装软件与配置文件至新平台，以便快速进入工作状态：</p><h4 id=在已有平台上的准备工作>在已有平台上的准备工作</h4><ul><li>进入通过 Scoop 安装的应用程序路径（如<code>D:\scoop\apps</code>），该路径中包括所有通过 Scoop 安装的软件，依次进入每个文件夹（<code>scoop</code>文件夹除外）并删除其内的<code>current</code>快捷方式，否则在压缩时该快捷方式将变成实际文件夹，并与原始文件夹重复，造成压缩文件翻倍；</li><li>利用 Windows 自带工具压缩 Scoop 文件夹（如<code>D:\scoop</code>）为<code>zip</code>文件（如<code>scoop.zip</code>），以便在新系统中能顺利解压，其他压缩格式可能无法顺利解压。</li></ul><h4 id=在新平台上所作的工作>在新平台上所作的工作</h4><ul><li>做好<strong>安装与卸载</strong>的<strong>前提条件</strong>小节中的准备工作；</li><li>将<code>scoop.zip</code>压缩包解压至指定安装路径（如<code>D:\newscoop</code>），并确保该路径下包含<code>apps</code>、<code>buckets</code>、<code>persist</code>、<code>shims</code>等文件夹；</li><li>修改环境变量，以让系统识别<code>scoop</code>命令：<ul><li>添加新环境变量<code>SCOOP</code>，其值为上述解压路径（如<code>D:\newscoop</code>）；</li><li>修改环境变量<code>PATH</code>的值，在该值中添加新项<code>%SCOOP%\shims</code>；</li></ul></li><li>重启 PowerShell 并用<code>reset</code>子命令重置所有软件快捷方式：<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>scoop reset *
-</span></span></code></pre></div></li></ul><h3 id=总结>总结</h3><p>Scoop 为在 Windows 平台上安装软件提供了一种新思路，具有<strong>简洁</strong>、<strong>省心</strong>、<strong>绿色</strong>、<strong>便携</strong>、<strong>丰富</strong>等优势，值得尝试。</p></div><div class=post-footer></div></article></main></body></html>
+</span></span></code></pre></div></li></ul><h3 id=总结>总结</h3><p>Scoop 为在 Windows 平台上安装软件提供了一种新思路，具有<strong>简洁</strong>、<strong>省心</strong>、<strong>绿色</strong>、<strong>便携</strong>、<strong>丰富</strong>等优势，值得尝试。</p><h3 id=附录>附录</h3><p>以防无法访问，现将<code>scoop-installer.ps1</code>文件内容列出如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#75715e># Issue Tracker: https://github.com/ScoopInstaller/Install/issues</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Unlicense License:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># This is free and unenAcumbered software released into the public domain.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Anyone is free to copy, modify, publish, use, compile, sell, or</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># distribute this software, either in source code form or as a compiled</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># binary, for any purpose, commercial or non-commercial, and by any</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># means.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># In jurisdictions that recognize copyright laws, the author or authors</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># of this software dedicate any and all copyright interest in the</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># software to the public domain. We make this dedication for the benefit</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># of the public at large and to the detriment of our heirs and</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># successors. We intend this dedication to be an overt act of</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># relinquishment in perpetuity of all present and future rights to this</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># software under copyright law.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># THE SOFTWARE IS PROVIDED &#34;AS IS&#34;, WITHOUT WARRANTY OF ANY KIND,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># OTHER DEALINGS IN THE SOFTWARE.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># For more information, please refer to &lt;http://unlicense.org/&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>&lt;#
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.</span><span style=color:#e6db74>SYNOPSIS</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Scoop installer.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.</span><span style=color:#e6db74>DESCRIPTION</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    The installer of Scoop. For details please check the website and wiki.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER ScoopDir
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Specifies Scoop root path.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    If not specified, Scoop will be installed to &#39;$env:USERPROFILE\scoop&#39;.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER ScoopGlobalDir
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Specifies directory to store global apps.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    If not specified, global apps will be installed to &#39;$env:ProgramData\scoop&#39;.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER ScoopCacheDir
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Specifies cache directory.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    If not specified, caches will be downloaded to &#39;$ScoopDir\cache&#39;.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER NoProxy
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Bypass system proxy during the installation.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER Proxy
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Specifies proxy to use during the installation.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER ProxyCredential
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Specifies credential for the given prxoy.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER ProxyUseDefaultCredentials
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Use the credentials of the current user for the proxy server that is specified by the -Proxy parameter.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.PARAMETER RunAsAdmin
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    Force to run the installer as administrator.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.</span><span style=color:#e6db74>LINK</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    https://scoop.sh
+</span></span></span><span style=display:flex><span><span style=color:#75715e>.</span><span style=color:#e6db74>LINK</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>    https://github.com/ScoopInstaller/Scoop/wiki
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>String</span>] $ScoopDir,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>String</span>] $ScoopGlobalDir,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>String</span>] $ScoopCacheDir,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>Switch</span>] $NoProxy,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>Uri</span>] $Proxy,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>System.Management.Automation.PSCredential</span>] $ProxyCredential,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>Switch</span>] $ProxyUseDefaultCredentials,
+</span></span><span style=display:flex><span>    [<span style=color:#66d9ef>Switch</span>] $RunAsAdmin
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Disable StrictMode in this script</span>
+</span></span><span style=display:flex><span>Set-StrictMode -Off
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Write-InstallInfo {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>Mandatory</span> = $True, <span style=color:#a6e22e>Position</span> = <span style=color:#ae81ff>0</span>)]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $String,
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>Mandatory</span> = $False, <span style=color:#a6e22e>Position</span> = <span style=color:#ae81ff>1</span>)]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>System.ConsoleColor</span>] $ForegroundColor = $host.UI.RawUI.ForegroundColor
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    $backup = $host.UI.RawUI.ForegroundColor
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($ForegroundColor <span style=color:#f92672>-ne</span> $host.UI.RawUI.ForegroundColor) {
+</span></span><span style=display:flex><span>        $host.UI.RawUI.ForegroundColor = $ForegroundColor
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Write-Output <span style=color:#e6db74>&#34;</span>$String<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    $host.UI.RawUI.ForegroundColor = $backup
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Deny-Install {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $message,
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>Int</span>] $errorCode = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Write-InstallInfo -String $message -ForegroundColor DarkRed
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Abort.&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Don&#39;t abort if invoked with iex that would close the PS session</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($IS_EXECUTED_FROM_IEX) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        exit $errorCode
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Test-ValidateParameter {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($null <span style=color:#f92672>-eq</span> $Proxy <span style=color:#f92672>-and</span> ($null <span style=color:#f92672>-ne</span> $ProxyCredential <span style=color:#f92672>-or</span> $ProxyUseDefaultCredentials)) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;Provide a valid proxy URI for the -Proxy parameter when using the -ProxyCredential or -ProxyUseDefaultCredentials.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($ProxyUseDefaultCredentials <span style=color:#f92672>-and</span> $null <span style=color:#f92672>-ne</span> $ProxyCredential) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;ProxyUseDefaultCredentials is conflict with ProxyCredential. Don&#39;t use the -ProxyCredential and -ProxyUseDefaultCredentials together.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Test-IsAdministrator {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ([<span style=color:#66d9ef>Security.Principal.WindowsPrincipal</span>]`
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>Security.Principal.WindowsIdentity</span>]::GetCurrent()`
+</span></span><span style=display:flex><span>    ).IsInRole([<span style=color:#66d9ef>Security.Principal.WindowsBuiltInRole</span>]::Administrator) <span style=color:#f92672>-and</span> $env:USERNAME <span style=color:#f92672>-ne</span> <span style=color:#e6db74>&#39;WDAGUtilityAccount&#39;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Test-Prerequisite {
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Scoop requires PowerShell 5 at least</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (($PSVersionTable.PSVersion.Major) <span style=color:#f92672>-lt</span> <span style=color:#ae81ff>5</span>) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;PowerShell 5 or later is required to run Scoop. Go to https://microsoft.com/powershell to get the latest version of PowerShell.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Scoop requires TLS 1.2 SecurityProtocol, which exists in .NET Framework 4.5+</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ([<span style=color:#66d9ef>System.Enum</span>]::GetNames([<span style=color:#66d9ef>System.Net.SecurityProtocolType</span>]) <span style=color:#f92672>-notcontains</span> <span style=color:#e6db74>&#39;Tls12&#39;</span>) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;Scoop requires .NET Framework 4.5+ to work. Go to https://microsoft.com/net/download to get the latest version of .NET Framework.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Ensure Robocopy.exe is accessible</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!([<span style=color:#66d9ef>bool</span>](Get-Command -Name <span style=color:#e6db74>&#39;robocopy&#39;</span> -ErrorAction SilentlyContinue))) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;Scoop requires &#39;C:\Windows\System32\Robocopy.exe&#39; to work. Please make sure &#39;C:\Windows\System32&#39; is in your PATH.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Detect if RunAsAdministrator, there is no need to run as administrator when installing Scoop.</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!$RunAsAdmin <span style=color:#f92672>-and</span> (Test-IsAdministrator)) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;Running the installer as administrator is disabled by default, see https://github.com/ScoopInstaller/Install#for-admin for details.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Show notification to change execution policy</span>
+</span></span><span style=display:flex><span>    $allowedExecutionPolicy = @(<span style=color:#e6db74>&#39;Unrestricted&#39;</span>, <span style=color:#e6db74>&#39;RemoteSigned&#39;</span>, <span style=color:#e6db74>&#39;ByPass&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ((Get-ExecutionPolicy).ToString() -notin $allowedExecutionPolicy) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;PowerShell requires an execution policy in [</span>$($allowedExecutionPolicy -join <span style=color:#e6db74>&#34;, &#34;</span>)<span style=color:#e6db74>] to run Scoop. For example, to set the execution policy to &#39;RemoteSigned&#39; please run &#39;Set-ExecutionPolicy RemoteSigned -Scope CurrentUser&#39;.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Test if scoop is installed, by checking if scoop command exists.</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ([<span style=color:#66d9ef>bool</span>](Get-Command -Name <span style=color:#e6db74>&#39;scoop&#39;</span> -ErrorAction SilentlyContinue)) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;Scoop is already installed. Run &#39;scoop update&#39; to get the latest version.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Optimize-SecurityProtocol {
+</span></span><span style=display:flex><span>    <span style=color:#75715e># .NET Framework 4.7+ has a default security protocol called &#39;SystemDefault&#39;,</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># which allows the operating system to choose the best protocol to use.</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># If SecurityProtocolType contains &#39;SystemDefault&#39; (means .NET4.7+ detected)</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># and the value of SecurityProtocol is &#39;SystemDefault&#39;, just do nothing on SecurityProtocol,</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># &#39;SystemDefault&#39; will use TLS 1.2 if the webrequest requires.</span>
+</span></span><span style=display:flex><span>    $isNewerNetFramework = ([<span style=color:#66d9ef>System.Enum</span>]::GetNames([<span style=color:#66d9ef>System.Net.SecurityProtocolType</span>]) <span style=color:#f92672>-contains</span> <span style=color:#e6db74>&#39;SystemDefault&#39;</span>)
+</span></span><span style=display:flex><span>    $isSystemDefault = ([<span style=color:#66d9ef>System.Net.ServicePointManager</span>]::SecurityProtocol.Equals([<span style=color:#66d9ef>System.Net.SecurityProtocolType</span>]::SystemDefault))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># If not, change it to support TLS 1.2</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!($isNewerNetFramework <span style=color:#f92672>-and</span> $isSystemDefault)) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Set to TLS 1.2 (3072), then TLS 1.1 (768), and TLS 1.0 (192). Ssl3 has been superseded,</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># https://docs.microsoft.com/en-us/dotnet/api/system.net.securityprotocoltype?view=netframework-4.5</span>
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>System.Net.ServicePointManager</span>]::SecurityProtocol = <span style=color:#ae81ff>3072</span> <span style=color:#f92672>-bor</span> <span style=color:#ae81ff>768</span> <span style=color:#f92672>-bor</span> <span style=color:#ae81ff>192</span>
+</span></span><span style=display:flex><span>        Write-Verbose <span style=color:#e6db74>&#34;SecurityProtocol has been updated to support TLS 1.2&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Get-Downloader {
+</span></span><span style=display:flex><span>    $downloadSession = New-Object System.Net.WebClient
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Set proxy to null if NoProxy is specificed</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($NoProxy) {
+</span></span><span style=display:flex><span>        $downloadSession.Proxy = $null
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>elseif</span> ($Proxy) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Prepend protocol if not provided</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (!$Proxy.IsAbsoluteUri) {
+</span></span><span style=display:flex><span>            $Proxy = New-Object System.Uri(<span style=color:#e6db74>&#34;http://&#34;</span> + $Proxy.OriginalString)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        $Proxy = New-Object System.Net.WebProxy($Proxy)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($null <span style=color:#f92672>-ne</span> $ProxyCredential) {
+</span></span><span style=display:flex><span>            $Proxy.Credentials = $ProxyCredential.GetNetworkCredential()
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>elseif</span> ($ProxyUseDefaultCredentials) {
+</span></span><span style=display:flex><span>            $Proxy.UseDefaultCredentials = $true
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        $downloadSession.Proxy = $Proxy
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> $downloadSession
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Test-isFileLocked {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $path
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    $file = New-Object System.IO.FileInfo $path
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Test-Path $path)) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $false
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>        $stream = $file.Open(
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>System.IO.FileMode</span>]::Open,
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>System.IO.FileAccess</span>]::ReadWrite,
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>System.IO.FileShare</span>]::None
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($stream) {
+</span></span><span style=display:flex><span>            $stream.Close()
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $false
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e># The file is locked by a process.</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $true
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Expand-ZipArchive {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $path,
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $to
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Test-Path $path)) {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;Unzip failed: can&#39;t find </span>$path<span style=color:#e6db74> to unzip.&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Check if the zip file is locked, by antivirus software for example</span>
+</span></span><span style=display:flex><span>    $retries = <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> ($retries <span style=color:#f92672>-le</span> <span style=color:#ae81ff>10</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($retries <span style=color:#f92672>-eq</span> <span style=color:#ae81ff>10</span>) {
+</span></span><span style=display:flex><span>            Deny-Install <span style=color:#e6db74>&#34;Unzip failed: can&#39;t unzip because a process is locking the file.&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (Test-isFileLocked $path) {
+</span></span><span style=display:flex><span>            Write-InstallInfo <span style=color:#e6db74>&#34;Waiting for </span>$path<span style=color:#e6db74> to be unlocked by another process... (</span>$retries<span style=color:#e6db74>/10)&#34;</span>
+</span></span><span style=display:flex><span>            $retries++
+</span></span><span style=display:flex><span>            Start-Sleep -Seconds <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Workaround to suspend Expand-Archive verbose output,</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># upstream issue: https://github.com/PowerShell/Microsoft.PowerShell.Archive/issues/98</span>
+</span></span><span style=display:flex><span>    $oldVerbosePreference = $VerbosePreference
+</span></span><span style=display:flex><span>    $global:VerbosePreference = <span style=color:#e6db74>&#39;SilentlyContinue&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Disable progress bar to gain performance</span>
+</span></span><span style=display:flex><span>    $oldProgressPreference = $ProgressPreference
+</span></span><span style=display:flex><span>    $global:ProgressPreference = <span style=color:#e6db74>&#39;SilentlyContinue&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># PowerShell 5+: use Expand-Archive to extract zip files</span>
+</span></span><span style=display:flex><span>    Microsoft.PowerShell.Archive\Expand-Archive -Path $path -DestinationPath $to -Force
+</span></span><span style=display:flex><span>    $global:VerbosePreference = $oldVerbosePreference
+</span></span><span style=display:flex><span>    $global:ProgressPreference = $oldProgressPreference
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Out-UTF8File {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>Mandatory</span> = $True, <span style=color:#a6e22e>Position</span> = <span style=color:#ae81ff>0</span>)]
+</span></span><span style=display:flex><span>        [Alias(<span style=color:#e6db74>&#34;Path&#34;</span>)]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $FilePath,
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>Switch</span>] $Append,
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>Switch</span>] $NoNewLine,
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>ValueFromPipeline</span> = $True)]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>PSObject</span>] $InputObject
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>process</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($Append) {
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>System.IO.File</span>]::AppendAllText($FilePath, $InputObject)
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (!$NoNewLine) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e># Ref: https://stackoverflow.com/questions/5596982</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e># Performance Note: `WriteAllLines` throttles memory usage while</span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e># `WriteAllText` needs to keep the complete string in memory.</span>
+</span></span><span style=display:flex><span>                [<span style=color:#66d9ef>System.IO.File</span>]::WriteAllLines($FilePath, $InputObject)
+</span></span><span style=display:flex><span>            } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                <span style=color:#75715e># However `WriteAllText` does not add ending newline.</span>
+</span></span><span style=display:flex><span>                [<span style=color:#66d9ef>System.IO.File</span>]::WriteAllText($FilePath, $InputObject)
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Import-ScoopShim {
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Creating shim...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># The scoop executable</span>
+</span></span><span style=display:flex><span>    $path = <span style=color:#e6db74>&#34;</span>$SCOOP_APP_DIR<span style=color:#e6db74>\bin\scoop.ps1&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Test-Path $SCOOP_SHIMS_DIR)) {
+</span></span><span style=display:flex><span>        New-Item -Type Directory $SCOOP_SHIMS_DIR | Out-Null
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># The scoop shim</span>
+</span></span><span style=display:flex><span>    $shim = <span style=color:#e6db74>&#34;</span>$SCOOP_SHIMS_DIR<span style=color:#e6db74>\scoop&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Convert to relative path</span>
+</span></span><span style=display:flex><span>    Push-Location $SCOOP_SHIMS_DIR
+</span></span><span style=display:flex><span>    $relativePath = Resolve-Path -Relative $path
+</span></span><span style=display:flex><span>    Pop-Location
+</span></span><span style=display:flex><span>    $absolutePath = Resolve-Path $path
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># if $path points to another drive resolve-path prepends .\ which could break shims</span>
+</span></span><span style=display:flex><span>    $ps1text = <span style=color:#66d9ef>if</span> ($relativePath <span style=color:#f92672>-match</span> <span style=color:#e6db74>&#39;^(\.\\)?\w:.*$&#39;</span>) {
+</span></span><span style=display:flex><span>        @(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;# </span>$absolutePath<span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>path = </span><span style=color:#ae81ff>`&#34;</span>$path<span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;if (</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>MyInvocation.ExpectingInput) { </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>input | &amp; </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>path </span>$arg<span style=color:#e6db74> @args } else { &amp; </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>path </span>$arg<span style=color:#e6db74> @args }&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;exit </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>LASTEXITCODE&#34;</span>
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        @(
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;# </span>$absolutePath<span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>path = Join-Path </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>PSScriptRoot </span><span style=color:#ae81ff>`&#34;</span>$relativePath<span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;if (</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>MyInvocation.ExpectingInput) { </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>input | &amp; </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>path </span>$arg<span style=color:#e6db74> @args } else { &amp; </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>path </span>$arg<span style=color:#e6db74> @args }&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;exit </span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>LASTEXITCODE&#34;</span>
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    $ps1text -join <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`r`n</span><span style=color:#e6db74>&#34;</span> | Out-UTF8File <span style=color:#e6db74>&#34;</span>$shim<span style=color:#e6db74>.ps1&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># make ps1 accessible from cmd.exe</span>
+</span></span><span style=display:flex><span>    @(
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;@rem </span>$absolutePath<span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;@echo off&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;setlocal enabledelayedexpansion&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;set args=%*&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;:: replace problem characters in arguments&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;set args=%args:</span><span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>=&#39;%&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;set args=%args:(=</span><span style=color:#ae81ff>``</span><span style=color:#e6db74>(%&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;set args=%args:)=</span><span style=color:#ae81ff>``</span><span style=color:#e6db74>)%&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;set invalid=</span><span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>=&#39;&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;if !args! == !invalid! ( set args= )&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;where /q pwsh.exe&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;if %errorlevel% equ 0 (&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;    pwsh -noprofile -ex unrestricted -file </span><span style=color:#ae81ff>`&#34;</span>$absolutePath<span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74> </span>$arg<span style=color:#e6db74> %args%&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;) else (&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;    powershell -noprofile -ex unrestricted -file </span><span style=color:#ae81ff>`&#34;</span>$absolutePath<span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74> </span>$arg<span style=color:#e6db74> %args%&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;)&#34;</span>
+</span></span><span style=display:flex><span>    ) -join <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`r`n</span><span style=color:#e6db74>&#34;</span> | Out-UTF8File <span style=color:#e6db74>&#34;</span>$shim<span style=color:#e6db74>.cmd&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    @(
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;#!/bin/sh&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;# </span>$absolutePath<span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;if command -v pwsh.exe &gt; /dev/null 2&gt;&amp;1; then&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;    pwsh.exe -noprofile -ex unrestricted -file </span><span style=color:#ae81ff>`&#34;</span>$absolutePath<span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74> </span>$arg<span style=color:#e6db74> </span><span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>$@</span><span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;else&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;    powershell.exe -noprofile -ex unrestricted -file </span><span style=color:#ae81ff>`&#34;</span>$absolutePath<span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74> </span>$arg<span style=color:#e6db74> </span><span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>$@</span><span style=color:#ae81ff>`&#34;</span><span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;fi&#34;</span>
+</span></span><span style=display:flex><span>    ) -join <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`n</span><span style=color:#e6db74>&#34;</span> | Out-UTF8File $shim -NoNewLine
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Get-Env {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>(
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $name,
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>Switch</span>] $global
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    $target = <span style=color:#66d9ef>if</span> ($global) { <span style=color:#e6db74>&#39;Machine&#39;</span> } <span style=color:#66d9ef>else</span> { <span style=color:#e6db74>&#39;User&#39;</span> }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> [<span style=color:#66d9ef>Environment</span>]::GetEnvironmentVariable($name, $target)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Add-ShimsDirToPath {
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Get $env:PATH of current user</span>
+</span></span><span style=display:flex><span>    $userEnvPath = Get-Env <span style=color:#e6db74>&#39;PATH&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($userEnvPath <span style=color:#f92672>-notmatch</span> [<span style=color:#66d9ef>Regex</span>]::Escape($SCOOP_SHIMS_DIR)) {
+</span></span><span style=display:flex><span>        $h = (Get-PSProvider <span style=color:#e6db74>&#39;FileSystem&#39;</span>).Home
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (!$h.EndsWith(<span style=color:#e6db74>&#39;\&#39;</span>)) {
+</span></span><span style=display:flex><span>            $h += <span style=color:#e6db74>&#39;\&#39;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (!($h <span style=color:#f92672>-eq</span> <span style=color:#e6db74>&#39;\&#39;</span>)) {
+</span></span><span style=display:flex><span>            $friendlyPath = <span style=color:#e6db74>&#34;</span>$SCOOP_SHIMS_DIR<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>-Replace</span> ([<span style=color:#66d9ef>Regex</span>]::Escape($h)), <span style=color:#e6db74>&#34;~\&#34;</span>
+</span></span><span style=display:flex><span>            Write-InstallInfo <span style=color:#e6db74>&#34;Adding </span>$friendlyPath<span style=color:#e6db74> to your path.&#34;</span>
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            Write-InstallInfo <span style=color:#e6db74>&#34;Adding </span>$SCOOP_SHIMS_DIR<span style=color:#e6db74> to your path.&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># For future sessions</span>
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>System.Environment</span>]::SetEnvironmentVariable(<span style=color:#e6db74>&#39;PATH&#39;</span>, <span style=color:#e6db74>&#34;</span>$SCOOP_SHIMS_DIR<span style=color:#e6db74>;</span>$userEnvPath<span style=color:#e6db74>&#34;</span>, <span style=color:#e6db74>&#39;User&#39;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#75715e># For current session</span>
+</span></span><span style=display:flex><span>        $env:PATH = <span style=color:#e6db74>&#34;</span>$SCOOP_SHIMS_DIR<span style=color:#e6db74>;</span>$env:PATH<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Use-Config {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Test-Path $SCOOP_CONFIG_FILE)) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> $null
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> (Get-Content $SCOOP_CONFIG_FILE -Raw | ConvertFrom-Json -ErrorAction Stop)
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> {
+</span></span><span style=display:flex><span>        Deny-Install <span style=color:#e6db74>&#34;ERROR loading </span>$SCOOP_CONFIG_FILE<span style=color:#e6db74>`: </span>$($_.Exception.Message)<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Add-Config {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span> (
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>Mandatory</span> = $True, <span style=color:#a6e22e>Position</span> = <span style=color:#ae81ff>0</span>)]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $Name,
+</span></span><span style=display:flex><span>        [Parameter(<span style=color:#a6e22e>Mandatory</span> = $True, <span style=color:#a6e22e>Position</span> = <span style=color:#ae81ff>1</span>)]
+</span></span><span style=display:flex><span>        [<span style=color:#66d9ef>String</span>] $Value
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    $scoopConfig = Use-Config
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($scoopConfig <span style=color:#f92672>-is</span> [<span style=color:#66d9ef>System.Management.Automation.PSObject</span>]) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($Value <span style=color:#f92672>-eq</span> [<span style=color:#66d9ef>bool</span>]::TrueString <span style=color:#f92672>-or</span> $Value <span style=color:#f92672>-eq</span> [<span style=color:#66d9ef>bool</span>]::FalseString) {
+</span></span><span style=display:flex><span>            $Value = [<span style=color:#66d9ef>System.Convert</span>]::ToBoolean($Value)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($null <span style=color:#f92672>-eq</span> $scoopConfig.$Name) {
+</span></span><span style=display:flex><span>            $scoopConfig | Add-Member -MemberType NoteProperty -Name $Name -Value $Value
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            $scoopConfig.$Name = $Value
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        $baseDir = Split-Path -Path $SCOOP_CONFIG_FILE
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (!(Test-Path $baseDir)) {
+</span></span><span style=display:flex><span>            New-Item -Type Directory $baseDir | Out-Null
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        $scoopConfig = New-Object PSObject
+</span></span><span style=display:flex><span>        $scoopConfig | Add-Member -MemberType NoteProperty -Name $Name -Value $Value
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ($null <span style=color:#f92672>-eq</span> $Value) {
+</span></span><span style=display:flex><span>        $scoopConfig.PSObject.Properties.Remove($Name)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    ConvertTo-Json $scoopConfig | Set-Content $SCOOP_CONFIG_FILE -Encoding ASCII
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> $scoopConfig
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Add-DefaultConfig {
+</span></span><span style=display:flex><span>    <span style=color:#75715e># If user-level SCOOP env not defined, save to root_path</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Get-Env <span style=color:#e6db74>&#39;SCOOP&#39;</span>)) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ($SCOOP_DIR <span style=color:#f92672>-ne</span> <span style=color:#e6db74>&#34;</span>$env:USERPROFILE<span style=color:#e6db74>\scoop&#34;</span>) {
+</span></span><span style=display:flex><span>            Write-Verbose <span style=color:#e6db74>&#34;Adding config root_path: </span>$SCOOP_DIR<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            Add-Config -Name <span style=color:#e6db74>&#39;root_path&#39;</span> -Value $SCOOP_DIR | Out-Null
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Use system SCOOP_GLOBAL, or set system SCOOP_GLOBAL</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># with $env:SCOOP_GLOBAL if RunAsAdmin, otherwise save to global_path</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Get-Env <span style=color:#e6db74>&#39;SCOOP_GLOBAL&#39;</span> -global)) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ((Test-IsAdministrator) <span style=color:#f92672>-and</span> $env:SCOOP_GLOBAL) {
+</span></span><span style=display:flex><span>            Write-Verbose <span style=color:#e6db74>&#34;Setting System Environment Variable SCOOP_GLOBAL: </span>$env:SCOOP_GLOBAL<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>Environment</span>]::SetEnvironmentVariable(<span style=color:#e6db74>&#39;SCOOP_GLOBAL&#39;</span>, $env:SCOOP_GLOBAL, <span style=color:#e6db74>&#39;Machine&#39;</span>)
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> ($SCOOP_GLOBAL_DIR <span style=color:#f92672>-ne</span> <span style=color:#e6db74>&#34;</span>$env:ProgramData<span style=color:#e6db74>\scoop&#34;</span>) {
+</span></span><span style=display:flex><span>                Write-Verbose <span style=color:#e6db74>&#34;Adding config global_path: </span>$SCOOP_GLOBAL_DIR<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>                Add-Config -Name <span style=color:#e6db74>&#39;global_path&#39;</span> -Value $SCOOP_GLOBAL_DIR | Out-Null
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Use system SCOOP_CACHE, or set system SCOOP_CACHE</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># with $env:SCOOP_CACHE if RunAsAdmin, otherwise save to cache_path</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Get-Env <span style=color:#e6db74>&#39;SCOOP_CACHE&#39;</span> -global)) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> ((Test-IsAdministrator) <span style=color:#f92672>-and</span> $env:SCOOP_CACHE) {
+</span></span><span style=display:flex><span>            Write-Verbose <span style=color:#e6db74>&#34;Setting System Environment Variable SCOOP_CACHE: </span>$env:SCOOP_CACHE<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            [<span style=color:#66d9ef>Environment</span>]::SetEnvironmentVariable(<span style=color:#e6db74>&#39;SCOOP_CACHE&#39;</span>, $env:SCOOP_CACHE, <span style=color:#e6db74>&#39;Machine&#39;</span>)
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> ($SCOOP_CACHE_DIR <span style=color:#f92672>-ne</span> <span style=color:#e6db74>&#34;</span>$SCOOP_DIR<span style=color:#e6db74>\cache&#34;</span>) {
+</span></span><span style=display:flex><span>                Write-Verbose <span style=color:#e6db74>&#34;Adding config cache_path: </span>$SCOOP_CACHE_DIR<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>                Add-Config -Name <span style=color:#e6db74>&#39;cache_path&#39;</span> -Value $SCOOP_CACHE_DIR | Out-Null
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># save current datatime to last_update</span>
+</span></span><span style=display:flex><span>    Add-Config -Name <span style=color:#e6db74>&#39;last_update&#39;</span> -Value ([<span style=color:#66d9ef>System.DateTime</span>]::Now.ToString(<span style=color:#e6db74>&#39;o&#39;</span>)) | Out-Null
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Install-Scoop {
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Initializing...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Validate install parameters</span>
+</span></span><span style=display:flex><span>    Test-ValidateParameter
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Check prerequisites</span>
+</span></span><span style=display:flex><span>    Test-Prerequisite
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Enable TLS 1.2</span>
+</span></span><span style=display:flex><span>    Optimize-SecurityProtocol
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Download scoop zip from GitHub</span>
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Downloading...&#34;</span>
+</span></span><span style=display:flex><span>    $downloader = Get-Downloader
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 1. download scoop</span>
+</span></span><span style=display:flex><span>    $scoopZipfile = <span style=color:#e6db74>&#34;</span>$SCOOP_APP_DIR<span style=color:#e6db74>\scoop.zip&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Test-Path $SCOOP_APP_DIR)) {
+</span></span><span style=display:flex><span>        New-Item -Type Directory $SCOOP_APP_DIR | Out-Null
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;Downloading </span>$SCOOP_PACKAGE_REPO<span style=color:#e6db74> to </span>$scoopZipfile<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    $downloader.downloadFile($SCOOP_PACKAGE_REPO, $scoopZipfile)
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 2. download scoop main bucket</span>
+</span></span><span style=display:flex><span>    $scoopMainZipfile = <span style=color:#e6db74>&#34;</span>$SCOOP_MAIN_BUCKET_DIR<span style=color:#e6db74>\scoop-main.zip&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (!(Test-Path $SCOOP_MAIN_BUCKET_DIR)) {
+</span></span><span style=display:flex><span>        New-Item -Type Directory $SCOOP_MAIN_BUCKET_DIR | Out-Null
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;Downloading </span>$SCOOP_MAIN_BUCKET_REPO<span style=color:#e6db74> to </span>$scoopMainZipfile<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    $downloader.downloadFile($SCOOP_MAIN_BUCKET_REPO, $scoopMainZipfile)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Extract files from downloaded zip</span>
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Extracting...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 1. extract scoop</span>
+</span></span><span style=display:flex><span>    $scoopUnzipTempDir = <span style=color:#e6db74>&#34;</span>$SCOOP_APP_DIR<span style=color:#e6db74>\_tmp&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;Extracting </span>$scoopZipfile<span style=color:#e6db74> to </span>$scoopUnzipTempDir<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Expand-ZipArchive $scoopZipfile $scoopUnzipTempDir
+</span></span><span style=display:flex><span>    Copy-Item <span style=color:#e6db74>&#34;</span>$scoopUnzipTempDir<span style=color:#e6db74>\scoop-*\*&#34;</span> $SCOOP_APP_DIR -Recurse -Force
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 2. extract scoop main bucket</span>
+</span></span><span style=display:flex><span>    $scoopMainUnzipTempDir = <span style=color:#e6db74>&#34;</span>$SCOOP_MAIN_BUCKET_DIR<span style=color:#e6db74>\_tmp&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;Extracting </span>$scoopMainZipfile<span style=color:#e6db74> to </span>$scoopMainUnzipTempDir<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Expand-ZipArchive $scoopMainZipfile $scoopMainUnzipTempDir
+</span></span><span style=display:flex><span>    Copy-Item <span style=color:#e6db74>&#34;</span>$scoopMainUnzipTempDir<span style=color:#e6db74>\Main-*\*&#34;</span> $SCOOP_MAIN_BUCKET_DIR -Recurse -Force
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Cleanup</span>
+</span></span><span style=display:flex><span>    Remove-Item $scoopUnzipTempDir -Recurse -Force
+</span></span><span style=display:flex><span>    Remove-Item $scoopZipfile
+</span></span><span style=display:flex><span>    Remove-Item $scoopMainUnzipTempDir -Recurse -Force
+</span></span><span style=display:flex><span>    Remove-Item $scoopMainZipfile
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Create the scoop shim</span>
+</span></span><span style=display:flex><span>    Import-ScoopShim
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Finially ensure scoop shims is in the PATH</span>
+</span></span><span style=display:flex><span>    Add-ShimsDirToPath
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Setup initial configuration of Scoop</span>
+</span></span><span style=display:flex><span>    Add-DefaultConfig
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Scoop was installed successfully!&#34;</span> -ForegroundColor DarkGreen
+</span></span><span style=display:flex><span>    Write-InstallInfo <span style=color:#e6db74>&#34;Type &#39;scoop help&#39; for instructions.&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> Write-DebugInfo {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>param</span>($BoundArgs)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;-------- PSBoundParameters --------&#34;</span>
+</span></span><span style=display:flex><span>    $BoundArgs.GetEnumerator() | ForEach-Object { Write-Verbose $_ }
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;-------- Environment Variables --------&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>env:USERPROFILE: </span>$env:USERPROFILE<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>env:ProgramData: </span>$env:ProgramData<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>env:SCOOP: </span>$env:SCOOP<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>env:SCOOP_CACHE: </span>$SCOOP_CACHE<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>`$</span><span style=color:#e6db74>env:SCOOP_GLOBAL: </span>$env:SCOOP_GLOBAL<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;-------- Selected Variables --------&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;SCOOP_DIR: </span>$SCOOP_DIR<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;SCOOP_CACHE_DIR: </span>$SCOOP_CACHE_DIR<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;SCOOP_GLOBAL_DIR: </span>$SCOOP_GLOBAL_DIR<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    Write-Verbose <span style=color:#e6db74>&#34;SCOOP_CONFIG_HOME: </span>$SCOOP_CONFIG_HOME<span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Prepare variables</span>
+</span></span><span style=display:flex><span>$IS_EXECUTED_FROM_IEX = ($null <span style=color:#f92672>-eq</span> $MyInvocation.MyCommand.Path)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop root directory</span>
+</span></span><span style=display:flex><span>$SCOOP_DIR = $ScoopDir, $env:SCOOP, <span style=color:#e6db74>&#34;</span>$env:USERPROFILE<span style=color:#e6db74>\scoop&#34;</span> | Where-Object { <span style=color:#f92672>-not</span> [<span style=color:#66d9ef>String</span>]::IsNullOrEmpty($_) } | Select-Object -First <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop global apps directory</span>
+</span></span><span style=display:flex><span>$SCOOP_GLOBAL_DIR = $ScoopGlobalDir, $env:SCOOP_GLOBAL, <span style=color:#e6db74>&#34;</span>$env:ProgramData<span style=color:#e6db74>\scoop&#34;</span> | Where-Object { <span style=color:#f92672>-not</span> [<span style=color:#66d9ef>String</span>]::IsNullOrEmpty($_) } | Select-Object -First <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop cache directory</span>
+</span></span><span style=display:flex><span>$SCOOP_CACHE_DIR = $ScoopCacheDir, $env:SCOOP_CACHE, <span style=color:#e6db74>&#34;</span>$SCOOP_DIR<span style=color:#e6db74>\cache&#34;</span> | Where-Object { <span style=color:#f92672>-not</span> [<span style=color:#66d9ef>String</span>]::IsNullOrEmpty($_) } | Select-Object -First <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop shims directory</span>
+</span></span><span style=display:flex><span>$SCOOP_SHIMS_DIR = <span style=color:#e6db74>&#34;</span>$SCOOP_DIR<span style=color:#e6db74>\shims&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop itself directory</span>
+</span></span><span style=display:flex><span>$SCOOP_APP_DIR = <span style=color:#e6db74>&#34;</span>$SCOOP_DIR<span style=color:#e6db74>\apps\scoop\current&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop main bucket directory</span>
+</span></span><span style=display:flex><span>$SCOOP_MAIN_BUCKET_DIR = <span style=color:#e6db74>&#34;</span>$SCOOP_DIR<span style=color:#e6db74>\buckets\main&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Scoop config file location</span>
+</span></span><span style=display:flex><span>$SCOOP_CONFIG_HOME = $env:XDG_CONFIG_HOME, <span style=color:#e6db74>&#34;</span>$env:USERPROFILE<span style=color:#e6db74>\.config&#34;</span> | Select-Object -First <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>$SCOOP_CONFIG_FILE = <span style=color:#e6db74>&#34;</span>$SCOOP_CONFIG_HOME<span style=color:#e6db74>\scoop\config.json&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># TODO: Use a specific version of Scoop and the main bucket</span>
+</span></span><span style=display:flex><span>$SCOOP_PACKAGE_REPO = <span style=color:#e6db74>&#34;https://github.com/ScoopInstaller/Scoop/archive/master.zip&#34;</span>
+</span></span><span style=display:flex><span>$SCOOP_MAIN_BUCKET_REPO = <span style=color:#e6db74>&#34;https://github.com/ScoopInstaller/Main/archive/master.zip&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Quit if anything goes wrong</span>
+</span></span><span style=display:flex><span>$oldErrorActionPreference = $ErrorActionPreference
+</span></span><span style=display:flex><span>$ErrorActionPreference = <span style=color:#e6db74>&#39;Stop&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Logging debug info</span>
+</span></span><span style=display:flex><span>Write-DebugInfo $PSBoundParameters
+</span></span><span style=display:flex><span><span style=color:#75715e># Bootstrap function</span>
+</span></span><span style=display:flex><span>Install-Scoop
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Reset $ErrorActionPreference to original value</span>
+</span></span><span style=display:flex><span>$ErrorActionPreference = $oldErrorActionPreference
+</span></span></code></pre></div></div><div class=post-footer></div></article></main></body></html>
